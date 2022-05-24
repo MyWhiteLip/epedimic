@@ -1,0 +1,10 @@
+spring:
+  web:
+    resources:
+      static-locations: file:\usr\local\resource\img,
+                        file:\usr\local\resource\verifycode,
+                        file:\usr\local\resource\web,
+                        file:C:\Users\Administrator\source\web,
+                        file:C:\Users\Administrator\source\img
+
+
