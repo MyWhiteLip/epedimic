@@ -16,6 +16,7 @@ public class SeuApplication extends SpringBootServletInitializer {
     public static void main(String[] args) {
 
         SpringApplication.run(SeuApplication.class, args);
+
     }
 
 }

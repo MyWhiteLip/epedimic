@@ -1,10 +1,20 @@
 spring:
   web:
     resources:
-      static-locations: file:\usr\local\resource\img,
-                        file:\usr\local\resource\verifycode,
-                        file:\usr\local\resource\web,
-                        file:C:\Users\Administrator\source\web,
-                        file:C:\Users\Administrator\source\img
+      static-locations: file:C:\Users\Administrator\Contacts\web,
+                        file:C:\Users\Administrator\Desktop\source\web,
+                        file:C:\Users\Administrator\Desktop\source\img,
+                        file:C:\Users\Administrator\Desktop\source\verifycode,
 
-
+  redis:
+    host: 106.12.172.208  #服务器地址 你服务器或本机地址
+    port: 6379           #连接端口
+    database: 0          #数据库索引，默认0
+    password: qaz1527571461   #密码
+    jedis:
+      pool:
+        max-active: 8    #连接池最大连接数(使用负值表示没有限制)
+        max-wait: -1     #最大阻塞等待时间(使用负值表示没有限制)
+        max-idle: 8      #最大空闲连接数
+        min-idle: 0      #最小空闲连接数
+    timeout: 50000        #连接超时时间（毫秒）
