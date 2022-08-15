@@ -9,5 +9,8 @@ import com.baomidou.mybatisplus.service.IService;
 * @createDate 2022-08-15 13:04:12
 */
 public interface AreaIdService extends IService<AreaId> {
+    public  int addAreaId(AreaId record);
+
+    public int deleteAreaId(Integer areaId);
 
 }

@@ -4,4 +4,21 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.seu.mapper.CovidDetectionPointMapper">
 
+    <resultMap id="BaseResultMap" type="com.example.seu.entity.CovidDetectionPoint">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="provinceId" column="province_id" jdbcType="INTEGER"/>
+            <result property="cityId" column="city_id" jdbcType="INTEGER"/>
+            <result property="detail" column="detail" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,province_id,city_id,
+        detail
+    </sql>
+    <insert id="addCovidDetectionPoint" parameterType="com.example.seu.entity.CovidDetectionPoint">
+        insert into mydata.covid_detect_point(province_id,city_id,detail) values(#{provinceId,cityId,detail})
+    </insert>
+    <delete id="deleteCovidDetectionPoint">
+        delete from mydata.covid_detection_point where id=#{id}
+    </delete>
 </mapper>

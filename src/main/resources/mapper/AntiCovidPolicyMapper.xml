@@ -4,4 +4,21 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.seu.mapper.AntiCovidPolicyMapper">
 
+    <resultMap id="BaseResultMap" type="com.example.seu.entity.AntiCovidPolicy">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="provinceId" column="province_id" jdbcType="INTEGER"/>
+            <result property="cityId" column="city_id" jdbcType="INTEGER"/>
+            <result property="policy" column="policy" jdbcType="VARCHAR"/>
+    </resultMap>
+
+
+    <insert id="addANTI_CovidPolicy"  parameterType="com.example.seu.entity.AntiCovidPolicy">
+           insert into mydata.anti_covid_policy(province_id,city_id,policy) VALUES (#{provinceId},#{cityId},#{policy})
+
+    </insert>
+    <delete id="deleteANTI_CovidPolicy" parameterType="com.example.seu.entity.AntiCovidPolicy">
+        delete from mydata.anti_covid_policy  where id=#{id}
+    </delete>
+
+
 </mapper>

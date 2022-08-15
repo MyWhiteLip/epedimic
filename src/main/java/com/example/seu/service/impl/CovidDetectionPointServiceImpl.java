@@ -6,6 +6,8 @@ import com.example.seu.service.CovidDetectionPointService;
 import com.example.seu.mapper.CovidDetectionPointMapper;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
+
 /**
 * @author 22962
 * @description 针对表【covid_detection_point】的数据库操作Service实现
@@ -14,5 +16,17 @@ import org.springframework.stereotype.Service;
 @Service
 public class CovidDetectionPointServiceImpl extends ServiceImpl<CovidDetectionPointMapper, CovidDetectionPoint>
 implements CovidDetectionPointService{
+    @Resource
+    CovidDetectionPointMapper cdpm;
+    @Override
+    public int addCovidDetectionPoint(CovidDetectionPoint record)
+    {
+        return cdpm.addCovidDetectionPoint(record);
+    }
+    @Override
+    public  int deleteCovidDetectionPoint(Integer id)
+    {
+        return  cdpm.deleteCovidDetectionPoint(id);
+    }
 
 }

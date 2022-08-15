@@ -13,4 +13,7 @@ import org.apache.ibatis.annotations.Mapper;
 public interface AntiCovidPolicyMapper extends BaseMapper<AntiCovidPolicy> {
     int addANTI_CovidPolicy(AntiCovidPolicy acp);
 
+    int deleteANTI_CovidPolicy(int id);
+
+
 }

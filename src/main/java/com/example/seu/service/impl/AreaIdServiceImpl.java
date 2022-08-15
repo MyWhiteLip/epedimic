@@ -6,6 +6,8 @@ import com.example.seu.service.AreaIdService;
 import com.example.seu.mapper.AreaIdMapper;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
+
 /**
 * @author 22962
 * @description 针对表【area_id】的数据库操作Service实现
@@ -14,5 +16,17 @@ import org.springframework.stereotype.Service;
 @Service
 public class AreaIdServiceImpl extends ServiceImpl<AreaIdMapper, AreaId>
 implements AreaIdService{
+    @Resource
+    AreaIdMapper aim;
+    @Override
+    public int addAreaId(AreaId record) {
+    return aim.addArea(record);
+    }
+    @Override
+    public int deleteAreaId(Integer id)
+    {
+        return aim.deleteArea(id);
+    }
+
 
 }

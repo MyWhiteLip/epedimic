@@ -4,4 +4,15 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.seu.mapper.AreaIdMapper">
 
+    <resultMap id="BaseResultMap" type="com.example.seu.entity.AreaId">
+            <id property="areaId" column="area_id" jdbcType="INTEGER"/>
+            <result property="area" column="area" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <insert id="addArea" parameterType="com.example.seu.entity.AreaId">
+        insert into mydata.area_id(area_id,area) values (#{areaId},#{area})
+    </insert>
+    <insert id="deleteArea" parameterType="java.lang.Integer">
+        delete from mydata.area_id where area_id=#{id}
+    </insert>
 </mapper>

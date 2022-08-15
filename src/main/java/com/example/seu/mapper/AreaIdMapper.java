@@ -10,6 +10,8 @@ import com.baomidou.mybatisplus.mapper.BaseMapper;
 * @Entity com.example.seu.entity.AreaId
 */
 public interface AreaIdMapper extends BaseMapper<AreaId> {
+    int addArea(AreaId AI);
+    int deleteArea(Integer id);
 
 
 }
