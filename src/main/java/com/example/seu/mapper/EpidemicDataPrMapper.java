@@ -10,6 +10,7 @@ import com.baomidou.mybatisplus.mapper.BaseMapper;
 * @Entity com.example.seu.entity.EpidemicDataPr
 */
 public interface EpidemicDataPrMapper extends BaseMapper<EpidemicDataPr> {
+    int deleteById(int id);
 
-
+    int add(EpidemicDataPr epidemicDataPr);
 }

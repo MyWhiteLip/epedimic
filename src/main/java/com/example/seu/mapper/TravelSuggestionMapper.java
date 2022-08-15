@@ -11,5 +11,4 @@ import com.baomidou.mybatisplus.mapper.BaseMapper;
 */
 public interface TravelSuggestionMapper extends BaseMapper<TravelSuggestion> {
 
-
 }
