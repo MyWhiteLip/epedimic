@@ -10,6 +10,6 @@ import com.baomidou.mybatisplus.mapper.BaseMapper;
 * @Entity com.example.seu.entity.AntiCovidPolicy
 */
 public interface AntiCovidPolicyMapper extends BaseMapper<AntiCovidPolicy> {
-
+    void addANTI_CovidPolicy(AntiCovidPolicy acp);
 
 }

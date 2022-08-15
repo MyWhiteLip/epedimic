@@ -11,6 +11,12 @@
             <result property="policy" column="policy" jdbcType="VARCHAR"/>
     </resultMap>
 
+
+    <insert id="addANTI_CovidPolicy"  parameterType="com.example.seu.entity.AntiCovidPolicy">
+           insert into anti_covid_policy(province_id,city_id,policy) VALUES (#{provinceId},#{cityId},#{policy})
+    </insert>
+
+
     <sql id="Base_Column_List">
         id,province_id,city_id,
         policy
