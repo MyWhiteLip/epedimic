@@ -2,6 +2,7 @@ package com.example.seu.mapper;
 
 import com.example.seu.entity.AntiCovidPolicy;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Mapper;
 
 /**
 * @author 22962
@@ -10,6 +11,6 @@ import com.baomidou.mybatisplus.mapper.BaseMapper;
 * @Entity com.example.seu.entity.AntiCovidPolicy
 */
 public interface AntiCovidPolicyMapper extends BaseMapper<AntiCovidPolicy> {
-    void addANTI_CovidPolicy(AntiCovidPolicy acp);
+    int addANTI_CovidPolicy(AntiCovidPolicy acp);
 
 }

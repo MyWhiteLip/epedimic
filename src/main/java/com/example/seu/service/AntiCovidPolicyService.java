@@ -2,6 +2,8 @@ package com.example.seu.service;
 
 import com.example.seu.entity.AntiCovidPolicy;
 import com.baomidou.mybatisplus.service.IService;
+import com.example.seu.mapper.AntiCovidPolicyMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
 * @author 22962
@@ -9,5 +11,7 @@ import com.baomidou.mybatisplus.service.IService;
 * @createDate 2022-08-15 13:04:12
 */
 public interface AntiCovidPolicyService extends IService<AntiCovidPolicy> {
+
+    public int addAntiCovidPolicy(AntiCovidPolicy acp);
 
 }
