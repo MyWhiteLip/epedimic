@@ -3,26 +3,6 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.seu.mapper.EpidemicDataMapper">
-
-    <resultMap id="BaseResultMap" type="com.example.seu.entity.EpidemicData">
-            <id property="id" column="id" jdbcType="INTEGER"/>
-            <result property="provinceId" column="province_id" jdbcType="INTEGER"/>
-            <result property="cityId" column="city_id" jdbcType="INTEGER"/>
-            <result property="confirm" column="confirm" jdbcType="INTEGER"/>
-            <result property="asymptomatic" column="asymptomatic" jdbcType="INTEGER"/>
-            <result property="death" column="death" jdbcType="INTEGER"/>
-            <result property="cured" column="cured" jdbcType="INTEGER"/>
-            <result property="confirmIncrease" column="confirm_increase" jdbcType="INTEGER"/>
-            <result property="asymptomaticIncrease" column="asymptomatic_increase" jdbcType="INTEGER"/>
-            <result property="time" column="time" jdbcType="DATE"/>
-    </resultMap>
-
-    <sql id="Base_Column_List">
-        id,province_id,city_id,
-        confirm,asymptomatic,death,
-        cured,confirm_increase,asymptomatic_increase,
-        time
-    </sql>
     <insert id="addEpidemicData" parameterType="com.example.seu.entity.EpidemicData">
         insert into mydata.epidemic_data(province_id,city_id,confirm,asymptomatic,death,cured,confirm_increase,asymptomatic,time)
         values(#{provinceId},#{cityId},#{confirm},#{asymptomatic},#{death},#{cured},#{confirmIncrease},#{asymptomaticIncrease},#{time})
