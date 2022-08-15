@@ -10,6 +10,7 @@ import com.baomidou.mybatisplus.mapper.BaseMapper;
 * @Entity com.example.seu.entity.PopulationOut
 */
 public interface PopulationOutMapper extends BaseMapper<PopulationOut> {
+    int deleteById(int cityId);
 
-
+    int add(PopulationOut populationOut);
 }

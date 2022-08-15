@@ -2,6 +2,7 @@ package com.example.seu.mapper;
 
 import com.example.seu.entity.PopulationIn;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
+import com.example.seu.entity.PopulationOut;
 
 /**
 * @author 22962
@@ -10,6 +11,8 @@ import com.baomidou.mybatisplus.mapper.BaseMapper;
 * @Entity com.example.seu.entity.PopulationIn
 */
 public interface PopulationInMapper extends BaseMapper<PopulationIn> {
+    int deleteById(int cityId);
 
+    int add(PopulationIn populationIn);
 
 }

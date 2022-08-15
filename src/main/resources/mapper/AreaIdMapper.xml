@@ -4,12 +4,4 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.seu.mapper.AreaIdMapper">
 
-    <resultMap id="BaseResultMap" type="com.example.seu.entity.AreaId">
-            <id property="areaId" column="area_id" jdbcType="INTEGER"/>
-            <result property="area" column="area" jdbcType="VARCHAR"/>
-    </resultMap>
-
-    <sql id="Base_Column_List">
-        area_id,area
-    </sql>
 </mapper>

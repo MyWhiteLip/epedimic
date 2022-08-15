@@ -4,19 +4,4 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.seu.mapper.TravelSuggestionMapper">
 
-    <resultMap id="BaseResultMap" type="com.example.seu.entity.TravelSuggestion">
-            <id property="id" column="id" jdbcType="INTEGER"/>
-            <result property="provinceFromId" column="province_from_id" jdbcType="INTEGER"/>
-            <result property="cityFromId" column="city_from_id" jdbcType="INTEGER"/>
-            <result property="provinceToId" column="province_to_id" jdbcType="INTEGER"/>
-            <result property="cityToId" column="city_to_id" jdbcType="INTEGER"/>
-            <result property="time" column="time" jdbcType="DATE"/>
-            <result property="suggestion" column="suggestion" jdbcType="VARCHAR"/>
-    </resultMap>
-
-    <sql id="Base_Column_List">
-        id,province_from_id,city_from_id,
-        province_to_id,city_to_id,time,
-        suggestion
-    </sql>
 </mapper>

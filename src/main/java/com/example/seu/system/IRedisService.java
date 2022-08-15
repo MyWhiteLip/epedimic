@@ -3,7 +3,6 @@ package com.example.seu.system;
 import java.util.Map;
 
 public interface IRedisService {
-
     // 加入元素
     void setValue(String key, Map<String, Object> value);
     // 加入元素
