@@ -13,12 +13,12 @@
 
 
     <insert id="addANTI_CovidPolicy"  parameterType="com.example.seu.entity.AntiCovidPolicy">
-           insert into anti_covid_policy(province_id,city_id,policy) VALUES (#{provinceId},#{cityId},#{policy})
+           insert into mydata.anti_covid_policy(province_id,city_id,policy) VALUES (#{provinceId},#{cityId},#{policy})
+
     </insert>
+    <delete id="deleteANTI_CovidPolicy" parameterType="com.example.seu.entity.AntiCovidPolicy">
+        delete from mydata.anti_covid_policy  where id=#{id}
+    </delete>
 
 
-    <sql id="Base_Column_List">
-        id,province_id,city_id,
-        policy
-    </sql>
 </mapper>

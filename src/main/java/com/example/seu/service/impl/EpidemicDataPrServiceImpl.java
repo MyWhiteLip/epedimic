@@ -6,6 +6,8 @@ import com.example.seu.service.EpidemicDataPrService;
 import com.example.seu.mapper.EpidemicDataPrMapper;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
+
 /**
 * @author 22962
 * @description 针对表【epidemic_data_pr】的数据库操作Service实现
@@ -14,5 +16,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class EpidemicDataPrServiceImpl extends ServiceImpl<EpidemicDataPrMapper, EpidemicDataPr>
 implements EpidemicDataPrService{
+
 
 }

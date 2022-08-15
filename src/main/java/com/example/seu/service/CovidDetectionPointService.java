@@ -9,5 +9,7 @@ import com.baomidou.mybatisplus.service.IService;
 * @createDate 2022-08-15 13:04:12
 */
 public interface CovidDetectionPointService extends IService<CovidDetectionPoint> {
+    public int addCovidDetectionPoint(CovidDetectionPoint record);
+    public int deleteCovidDetectionPoint(Integer id);
 
 }

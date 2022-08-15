@@ -23,4 +23,11 @@
         cured,confirm_increase,asymptomatic_increase,
         time
     </sql>
+    <insert id="addEpidemicData" parameterType="com.example.seu.entity.EpidemicData">
+        insert into mydata.epidemic_data(province_id,city_id,confirm,asymptomatic,death,cured,confirm_increase,asymptomatic,time)
+        values(#{provinceId},#{cityId},#{confirm},#{asymptomatic},#{death},#{cured},#{confirmIncrease},#{asymptomaticIncrease},#{time})
+    </insert>
+    <delete id="deleteEpidemicData">
+        delete from mydata.epidemic_data where id=#{id}
+    </delete>
 </mapper>

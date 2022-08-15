@@ -26,4 +26,10 @@ implements AntiCovidPolicyService{
 
     }
 
+    @Override
+    public  int deleteAntiCovidPolicy(Integer id)
+    {
+        return acpm.deleteANTI_CovidPolicy(id);
+    }
+
 }

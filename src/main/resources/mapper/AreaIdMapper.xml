@@ -9,7 +9,10 @@
             <result property="area" column="area" jdbcType="VARCHAR"/>
     </resultMap>
 
-    <sql id="Base_Column_List">
-        area_id,area
-    </sql>
+    <insert id="addArea" parameterType="com.example.seu.entity.AreaId">
+        insert into mydata.area_id(area_id,area) values (#{areaId},#{area})
+    </insert>
+    <insert id="deleteArea" parameterType="java.lang.Integer">
+        delete from mydata.area_id where area_id=#{id}
+    </insert>
 </mapper>

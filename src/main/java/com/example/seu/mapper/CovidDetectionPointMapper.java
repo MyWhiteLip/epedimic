@@ -10,6 +10,8 @@ import com.baomidou.mybatisplus.mapper.BaseMapper;
 * @Entity com.example.seu.entity.CovidDetectionPoint
 */
 public interface CovidDetectionPointMapper extends BaseMapper<CovidDetectionPoint> {
+    int addCovidDetectionPoint(CovidDetectionPoint cdp);
+    int deleteCovidDetectionPoint(Integer id);
 
 
 }

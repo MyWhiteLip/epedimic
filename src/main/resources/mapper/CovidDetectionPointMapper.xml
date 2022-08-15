@@ -15,4 +15,10 @@
         id,province_id,city_id,
         detail
     </sql>
+    <insert id="addCovidDetectionPoint" parameterType="com.example.seu.entity.CovidDetectionPoint">
+        insert into mydata.covid_detect_point(province_id,city_id,detail) values(#{provinceId,cityId,detail})
+    </insert>
+    <delete id="deleteCovidDetectionPoint">
+        delete from mydata.covid_detection_point where id=#{id}
+    </delete>
 </mapper>
