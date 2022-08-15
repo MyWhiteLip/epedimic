@@ -1,4 +1,4 @@
-package com.sample;
+package com.example.seu.pojo;
 
 
 public class PopulationIn {
