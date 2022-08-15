@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.seu.mapper.EpidemicDataPrMapper">
+
+    <resultMap id="BaseResultMap" type="com.example.seu.entity.EpidemicDataPr">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="provinceId" column="province_id" jdbcType="INTEGER"/>
+            <result property="cityId" column="city_id" jdbcType="INTEGER"/>
+            <result property="confirmPr" column="confirm_pr" jdbcType="INTEGER"/>
+            <result property="asymptomaticPr" column="asymptomatic_pr" jdbcType="INTEGER"/>
+            <result property="deathPr" column="death_pr" jdbcType="INTEGER"/>
+            <result property="curedPr" column="cured_pr" jdbcType="INTEGER"/>
+            <result property="confirmIncreasePr" column="confirm_increase_pr" jdbcType="INTEGER"/>
+            <result property="asymptomaticIncreasePr" column="asymptomatic_increase_pr" jdbcType="INTEGER"/>
+            <result property="timePr" column="time_pr" jdbcType="DATE"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,province_id,city_id,
+        confirm_pr,asymptomatic_pr,death_pr,
+        cured_pr,confirm_increase_pr,asymptomatic_increase_pr,
+        time_pr
+    </sql>
+</mapper>
