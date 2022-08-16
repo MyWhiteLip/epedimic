@@ -2,6 +2,7 @@ package com.example.seu.mapper;
 
 import com.example.seu.entity.EpidemicDataPr;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Mapper;
 
 /**
 * @author 22962
@@ -9,6 +10,7 @@ import com.baomidou.mybatisplus.mapper.BaseMapper;
 * @createDate 2022-08-15 13:04:12
 * @Entity com.example.seu.entity.EpidemicDataPr
 */
+
 public interface EpidemicDataPrMapper extends BaseMapper<EpidemicDataPr> {
     int deleteById(int id);
 

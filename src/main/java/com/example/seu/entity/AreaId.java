@@ -25,4 +25,5 @@ public class AreaId implements Serializable {
     private String area;
 
     private static final long serialVersionUID = 1L;
+
 }

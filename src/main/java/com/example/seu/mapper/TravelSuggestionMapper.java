@@ -2,6 +2,7 @@ package com.example.seu.mapper;
 
 import com.example.seu.entity.TravelSuggestion;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Mapper;
 
 /**
 * @author 22962

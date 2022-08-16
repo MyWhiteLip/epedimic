@@ -5,7 +5,7 @@
 <mapper namespace="com.example.seu.mapper.CovidDetectionPointMapper">
 
     <insert id="addCovidDetectionPoint" parameterType="com.example.seu.entity.CovidDetectionPoint">
-        insert into mydata.covid_detection_point(province_id,city_id,detail) values(#{provinceId,cityId,detail})
+        insert into mydata.covid_detection_point(province_id,city_id,detail) values(#{provinceId},#{cityId},#{detail})
     </insert>
     <delete id="deleteCovidDetectionPoint">
         delete from mydata.covid_detection_point where id=#{id}

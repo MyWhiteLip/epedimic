@@ -17,5 +17,4 @@ import javax.annotation.Resource;
 public class EpidemicDataPrServiceImpl extends ServiceImpl<EpidemicDataPrMapper, EpidemicDataPr>
 implements EpidemicDataPrService{
 
-
 }
