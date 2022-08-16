@@ -13,7 +13,7 @@ import org.apache.ibatis.annotations.Mapper;
 */
 
 public interface PopulationInMapper extends BaseMapper<PopulationIn> {
-    int deleteById(int cityId);
+    int deleteById(int id);
 
     int add(PopulationIn populationIn);
 

@@ -3,6 +3,7 @@ package com.example.seu.web;
 import com.example.seu.entity.AreaId;
 import com.example.seu.service.AreaIdService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,7 +12,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-@RestController
+@Controller
 public class HelloController {
 
     @Resource
@@ -27,6 +28,11 @@ public class HelloController {
         ai.setArea("安徽");
         ai.setAreaId(1000);
         ais.addAreaId(ai);
+    }
+    @RequestMapping("/dianwokanzitengshuaizhao")
+    public String geta()
+    {
+        return "ziteng.jpg";
     }
 
 

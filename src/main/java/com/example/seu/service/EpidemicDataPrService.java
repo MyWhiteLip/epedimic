@@ -10,6 +10,7 @@ import com.baomidou.mybatisplus.service.IService;
 * @createDate 2022-08-15 13:04:12
 */
 public interface EpidemicDataPrService extends IService<EpidemicDataPr> {
-
+    public int addEpidemicDataPr(EpidemicDataPr record);
+    public int deleteEpidemicDataPr(Integer id);
 
 }

@@ -1,10 +1,8 @@
 spring:
   web:
     resources:
-      static-locations: file:C:\Users\Administrator\Contacts\web,
-                        file:C:\Users\Administrator\Desktop\source\web,
-                        file:C:\Users\Administrator\Desktop\source\img,
-                        file:C:\Users\Administrator\Desktop\source\verifycode,
+      static-locations: file:/usr/web,
+                        file:/usr/web/source
 
   redis:
     host: 106.12.172.208  #服务器地址 你服务器或本机地址

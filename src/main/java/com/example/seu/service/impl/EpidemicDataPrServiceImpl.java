@@ -16,5 +16,15 @@ import javax.annotation.Resource;
 @Service
 public class EpidemicDataPrServiceImpl extends ServiceImpl<EpidemicDataPrMapper, EpidemicDataPr>
 implements EpidemicDataPrService{
+    @Resource
+    EpidemicDataPrMapper edpm;
+    @Override
+    public int addEpidemicDataPr(EpidemicDataPr record) {
+        return edpm.add(record);
+    }
 
+    @Override
+    public int deleteEpidemicDataPr(Integer id) {
+        return edpm.deleteById(id);
+    }
 }

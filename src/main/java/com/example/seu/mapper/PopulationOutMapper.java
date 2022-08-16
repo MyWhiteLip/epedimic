@@ -12,6 +12,6 @@ import org.apache.ibatis.annotations.Mapper;
 */
 
 public interface PopulationOutMapper extends BaseMapper<PopulationOut> {
-    int deleteById(int cityId);
+    int deleteById(int id);
     int add(PopulationOut populationOut);
 }

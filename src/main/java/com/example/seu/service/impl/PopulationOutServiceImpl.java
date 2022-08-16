@@ -6,6 +6,8 @@ import com.example.seu.service.PopulationOutService;
 import com.example.seu.mapper.PopulationOutMapper;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
+
 /**
 * @author 22962
 * @description 针对表【population_out】的数据库操作Service实现
@@ -14,5 +16,16 @@ import org.springframework.stereotype.Service;
 @Service
 public class PopulationOutServiceImpl extends ServiceImpl<PopulationOutMapper, PopulationOut>
 implements PopulationOutService{
+    @Resource
+    PopulationOutMapper pom;
+    @Override
+    public int addPopulationOut(PopulationOut record)
+    {
+        return pom.add(record);
+    }
+    @Override
+    public int deletePopulationOut(int id) {
+        return pom.deleteById(id);
+    }
 
 }

@@ -10,11 +10,6 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 @MapperScan("com.example.seu.mapper")
 public class SeuApplication extends SpringBootServletInitializer {
 
-    @Override
-    protected SpringApplicationBuilder configure(SpringApplicationBuilder application)
-    {
-       return application.sources(SeuApplication.class);
-    }
     public static void main(String[] args) {
 
         SpringApplication.run(SeuApplication.class, args);

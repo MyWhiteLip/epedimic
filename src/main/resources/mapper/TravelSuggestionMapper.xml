@@ -3,5 +3,12 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.seu.mapper.TravelSuggestionMapper">
+    <insert id="addTravelSuggestion" parameterType="com.example.seu.entity.TravelSuggestion">
+        insert into mydata.travel_suggestion(id, province_from_id, city_from_id, province_to_id, city_to_id, time, suggestion)
+values(#{id},#{provinceFromId},#{cityFromId},#{provinceToId},#{cityToId},#{time},#{suggestion})
+    </insert>
 
+    <delete id="deleteTravelSuggestion">
+        delete from mydata.travel_suggestion where id=#{id}
+    </delete>
 </mapper>

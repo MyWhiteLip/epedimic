@@ -15,7 +15,7 @@
     <name>seu</name>
     <description>seu</description>
     <properties>
-        <java.version>11</java.version>
+        <java.version>17</java.version>
         <repackage.classifier/>
         <spring-native.version>0.11.4</spring-native.version>
         <spark.version>2.4.7</spark.version>
@@ -72,11 +72,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
-            <optional>true</optional> <!-- 这个需要为 true 热部署才有效 -->
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -162,10 +157,7 @@
                     </image>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
+
 
             <plugin>
                 <groupId>org.springframework.experimental</groupId>

@@ -9,5 +9,7 @@ import com.baomidou.mybatisplus.service.IService;
 * @createDate 2022-08-15 13:04:12
 */
 public interface PopulationInService extends IService<PopulationIn> {
+    public int addPopulationIn(PopulationIn record);
+    public int deletePopulationIn(int id);
 
 }

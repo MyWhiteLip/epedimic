@@ -11,5 +11,6 @@ import org.apache.ibatis.annotations.Mapper;
 * @Entity com.example.seu.entity.TravelSuggestion
 */
 public interface TravelSuggestionMapper extends BaseMapper<TravelSuggestion> {
-
+public  int addTravelSuggestion(TravelSuggestion record);
+public int deleteTravelSuggestion(Integer id);
 }
