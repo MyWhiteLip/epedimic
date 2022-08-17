@@ -13,4 +13,9 @@ public interface AreaIdService extends IService<AreaId> {
 
     public int deleteAreaId(Integer areaId);
 
+    public int searchAreaIdByArea(String area);
+    public String searchAreaByAreaId(int areaId);
+
+
+
 }

@@ -10,4 +10,10 @@
     <insert id="deleteArea" parameterType="java.lang.Integer">
         delete from mydata.area_id where area_id=#{id}
     </insert>
+    <select id="selectAreaIdByArea" resultType="java.lang.Integer"  parameterType="java.lang.String">
+        select area_id  from mydata.area_id where area= #{area}
+    </select>
+    <select id="selectAreaByAreaId" resultType="java.lang.String">
+        select area from mydata.area_id where  area_id=#{id}
+    </select>
 </mapper>

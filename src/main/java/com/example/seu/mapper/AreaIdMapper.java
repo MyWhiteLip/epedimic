@@ -14,6 +14,8 @@ import org.apache.ibatis.annotations.Mapper;
 public interface AreaIdMapper extends BaseMapper<AreaId> {
     int addArea(AreaId AI);
     int deleteArea(Integer id);
+    int selectAreaIdByArea(String area);
+    String selectAreaByAreaId(int id);
 
 
 }

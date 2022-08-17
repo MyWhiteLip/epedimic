@@ -28,5 +28,15 @@ implements AreaIdService{
         return aim.deleteArea(id);
     }
 
+    @Override
+    public int searchAreaIdByArea(String area) {
+        return aim.selectAreaIdByArea(area);
+    }
+
+    @Override
+    public String searchAreaByAreaId(int areaId) {
+        return aim.selectAreaByAreaId(areaId);
+    }
+
 
 }
