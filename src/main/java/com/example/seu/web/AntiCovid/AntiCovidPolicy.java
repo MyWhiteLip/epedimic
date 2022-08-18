@@ -17,8 +17,16 @@ public class AntiCovidPolicy {
     public ResultData getPolicy(@RequestParam("cityId")int cityId, @RequestParam("provinceId")int provinceId)
     {
         ResultData data = new ResultData();
-        data.setCode(400);
-        data.setMsg(acps.getPolicy(provinceId,cityId));
+        String msg=acps.getPolicy(provinceId,cityId);
+        if (msg!=null)
+        {
+            data.setMsg(msg);
+            data.setCode(400);
+        }
+        else {
+            data.setMsg("suggestion not found or id error");
+            data.setCode(403);
+        }
         return data;
     }
 }

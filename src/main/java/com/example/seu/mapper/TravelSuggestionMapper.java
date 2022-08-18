@@ -13,4 +13,5 @@ import org.apache.ibatis.annotations.Mapper;
 public interface TravelSuggestionMapper extends BaseMapper<TravelSuggestion> {
 public  int addTravelSuggestion(TravelSuggestion record);
 public int deleteTravelSuggestion(Integer id);
+public String getSuggestion(int provinceId_from,int cityId_from,int provinceId_to,int cityId_to);
 }
