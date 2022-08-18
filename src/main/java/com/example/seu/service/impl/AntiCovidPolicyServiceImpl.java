@@ -32,4 +32,10 @@ implements AntiCovidPolicyService{
         return acpm.deleteANTI_CovidPolicy(id);
     }
 
+    @Override
+    public String getPolicy(int provinceId, int cityId) {
+        return acpm.getAntiCovidPolicy(provinceId,cityId);
+    }
+
+
 }

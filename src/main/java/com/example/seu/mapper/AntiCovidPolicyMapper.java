@@ -15,5 +15,8 @@ public interface AntiCovidPolicyMapper extends BaseMapper<AntiCovidPolicy> {
 
     int deleteANTI_CovidPolicy(int id);
 
+    String getAntiCovidPolicy(int provinceId,int cityId);
+
+
 
 }

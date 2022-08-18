@@ -10,6 +10,9 @@
     <delete id="deleteANTI_CovidPolicy" parameterType="com.example.seu.entity.AntiCovidPolicy">
         delete from mydata.anti_covid_policy  where id=#{id}
     </delete>
+    <select id="getAntiCovidPolicy" resultType="java.lang.String">
+        select policy from mydata.anti_covid_policy where  province_id=#{provinceId} and city_id =#{cityId}
+    </select>
 
 
 </mapper>
