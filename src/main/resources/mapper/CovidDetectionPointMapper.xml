@@ -10,4 +10,13 @@
     <delete id="deleteCovidDetectionPoint">
         delete from mydata.covid_detection_point where id=#{id}
     </delete>
+    <select id="getAll" resultType="com.example.seu.entity.CovidDetectionPoint">
+        select * from mydata.covid_detection_point
+    </select>
+    <select id="getAllByProvinceId" resultType="com.example.seu.entity.CovidDetectionPoint">
+        select * from mydata.covid_detection_point where province_id=#{proviceId}
+    </select>
+    <select id="getAllByCityId" resultType="com.example.seu.entity.CovidDetectionPoint">
+        select * from mydata.covid_detection_point where  city_id=#{cityId}
+    </select>
 </mapper>

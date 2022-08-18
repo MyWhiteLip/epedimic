@@ -7,6 +7,7 @@ import com.example.seu.mapper.CovidDetectionPointMapper;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
 * @author 22962
@@ -27,6 +28,21 @@ implements CovidDetectionPointService{
     public  int deleteCovidDetectionPoint(Integer id)
     {
         return  cdpm.deleteCovidDetectionPoint(id);
+    }
+
+    @Override
+    public List<CovidDetectionPoint> getALL() {
+        return cdpm.getAll();
+    }
+
+    @Override
+    public List<CovidDetectionPoint> getAllByCityId(Integer cityId) {
+        return cdpm.getAllByCityId(cityId);
+    }
+
+    @Override
+    public List<CovidDetectionPoint> getAllByProvinceId(Integer provinceId) {
+        return cdpm.getAllByProvinceId(provinceId);
     }
 
 }

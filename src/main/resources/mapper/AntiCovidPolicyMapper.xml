@@ -4,14 +4,14 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.seu.mapper.AntiCovidPolicyMapper">
     <insert id="addANTI_CovidPolicy"  parameterType="com.example.seu.entity.AntiCovidPolicy">
-           insert into mydata.anti_covid_policy(province_id,city_id,policy) VALUES (#{provinceId},#{cityId},#{policy})
+           insert into mydata.anti_covid_policy(province_id,city_id,policy_in,policy_out) VALUES (#{provinceId},#{cityId},#{policyIn},#{policyOut})
 
     </insert>
     <delete id="deleteANTI_CovidPolicy" parameterType="com.example.seu.entity.AntiCovidPolicy">
         delete from mydata.anti_covid_policy  where id=#{id}
     </delete>
-    <select id="getAntiCovidPolicy" resultType="java.lang.String">
-        select policy from mydata.anti_covid_policy where  province_id=#{provinceId} and city_id =#{cityId}
+    <select id="getAntiCovidPolicy" resultType="com.example.seu.entity.AntiCovidPolicy">
+        select * from mydata.anti_covid_policy where  province_id=#{provinceId} and city_id =#{cityId}
     </select>
 
 

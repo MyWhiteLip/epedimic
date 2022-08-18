@@ -32,7 +32,10 @@ public class AntiCovidPolicy implements Serializable {
     /**
      * 
      */
-    private String policy;
+    private String policyIn;
+    private String policyOut;
+
+
 
     private static final long serialVersionUID = 1L;
 }

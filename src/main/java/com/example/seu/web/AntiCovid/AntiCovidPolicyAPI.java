@@ -1,5 +1,6 @@
 package com.example.seu.web.AntiCovid;
 
+import com.example.seu.entity.AntiCovidPolicy;
 import com.example.seu.service.AntiCovidPolicyService;
 import com.example.seu.service.TravelSuggestionService;
 import com.example.seu.system.ResultData;
@@ -10,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 
 @RestController
-public class AntiCovidPolicy {
+public class AntiCovidPolicyAPI {
     @Resource
     AntiCovidPolicyService acps;
     TravelSuggestionService tss;
@@ -19,7 +20,7 @@ public class AntiCovidPolicy {
     public ResultData getPolicy(@RequestParam("cityId")int cityId, @RequestParam("provinceId")int provinceId)
     {
         ResultData data = new ResultData();
-        String msg=acps.getPolicy(provinceId,cityId);
+        AntiCovidPolicy msg=acps.getPolicy(provinceId,cityId);
         if (msg!=null)
         {
             data.setMsg(msg);
