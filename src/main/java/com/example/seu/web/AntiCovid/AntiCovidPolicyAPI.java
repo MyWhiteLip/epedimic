@@ -21,17 +21,12 @@ public class AntiCovidPolicyAPI {
     {
         ResultData data = new ResultData();
         AntiCovidPolicy msg=acps.getPolicy(provinceId,cityId);
-        if (msg!=null)
-        {
-            data.setMsg(msg);
-            data.setCode(400);
+        if (msg!=null){
+            return ResultData.success(msg);
         }
         else {
-
-            data.setMsg("policy not found or id error");
-            data.setCode(403);
+            return ResultData.error("policy not found or id error");
         }
-        return data;
     }
     @PostMapping("/getSuggestion")
     public ResultData getSuggestion(@RequestParam("provinceId_from")int provinceId_from,
@@ -41,15 +36,12 @@ public class AntiCovidPolicyAPI {
     {
         ResultData data=new ResultData();
         String msg=tss.getSuggestion(provinceId_from,cityId_from,provinceId_to,cityId_to);
-        if (msg!=null)
-        {
-            data.setMsg(msg);
-            data.setCode(400);
+        if (msg!=null){
+            return ResultData.success(msg);
         }
         else {
-            data.setMsg("suggestion not found or id error");
+            return ResultData.error("suggestion not found or id error");
         }
-        return data;
     }
 
 }
