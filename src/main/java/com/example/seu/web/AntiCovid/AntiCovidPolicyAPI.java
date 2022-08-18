@@ -14,6 +14,7 @@ import javax.annotation.Resource;
 public class AntiCovidPolicyAPI {
     @Resource
     AntiCovidPolicyService acps;
+    @Resource
     TravelSuggestionService tss;
 
     @PostMapping("/getPolicy")
