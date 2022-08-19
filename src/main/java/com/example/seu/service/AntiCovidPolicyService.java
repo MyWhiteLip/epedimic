@@ -14,6 +14,6 @@ public interface AntiCovidPolicyService extends IService<AntiCovidPolicy> {
 
     public int addAntiCovidPolicy(AntiCovidPolicy acp);
     public int deleteAntiCovidPolicy(Integer id);
-    public AntiCovidPolicy getPolicy(int provinceId, int cityId);
+    public AntiCovidPolicy getPolicy(int cityId);
 
 }
