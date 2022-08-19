@@ -64,6 +64,7 @@ public class EpidemicData implements Serializable {
      * 
      */
     private LocalDate time;
+    private Integer riskAreaNumber;
 
     private static final long serialVersionUID = 1L;
 }
