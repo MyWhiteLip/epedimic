@@ -1,6 +1,5 @@
 package com.example.seu.web.EpidemicData;
 
-import com.example.seu.entity.CovidDetectionPoint;
 import com.example.seu.entity.EpidemicData;
 import com.example.seu.service.EpidemicDataService;
 import com.example.seu.system.ResultData;
@@ -22,10 +21,29 @@ public class EpidemicDataAPI {
     @PostMapping("/getAllEpidemicData")
     public ResultData getAllEpidemicData() {
         List<EpidemicData> epidemicData = epidemicDataService.queryAll();
-        if(epidemicData!=null)
+        if(epidemicData!=null) {
             return ResultData.success(epidemicData);
-        else
+        }
+        else {
             return ResultData.error("something wrong");
-
+        }
     }
+    @PostMapping("/getAllEpidemicDataById")
+    public ResultData getAllEpidemicDataById(@RequestBody Map<String, Object> map) {
+        EpidemicData epidemicData;
+        if (map.containsKey("cityId")){
+            epidemicData = epidemicDataService.queryAllByCityId((Integer) map.get("cityId"));
+        }
+        else {
+            epidemicData = epidemicDataService.queryAllByProvinceId((Integer) map.get("provinceId"));
+        }
+        if(epidemicData!=null){
+            return ResultData.success(epidemicData);
+        }
+        else {
+            return ResultData.error("something wrong");
+        }
+    }
+
+
 }

@@ -34,4 +34,14 @@ implements EpidemicDataService{
     public List<EpidemicData> queryAll() {
         return edm.queryAll();
     }
+
+    @Override
+    public EpidemicData queryAllByProvinceId(int provinceId) {
+        return edm.queryAllByProvinceId(provinceId);
+    }
+
+    @Override
+    public EpidemicData queryAllByCityId(int cityId) {
+        return edm.queryAllByCityId(cityId);
+    }
 }

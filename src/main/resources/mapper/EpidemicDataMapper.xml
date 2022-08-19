@@ -13,5 +13,11 @@
     <select id="queryAll" resultType="com.example.seu.entity.EpidemicData">
         select * from mydata.epidemic_data
     </select>
+    <select id="queryAllByProvinceId" resultType="com.example.seu.entity.EpidemicData">
+        select * from mydata.epidemic_data where province_id=#{provinceId} and city_id is null
+    </select>
+    <select id="queryAllByCityId" resultType="com.example.seu.entity.EpidemicData">
+        select * from mydata.epidemic_data where city_id=#{cityId}
+    </select>
 
 </mapper>
