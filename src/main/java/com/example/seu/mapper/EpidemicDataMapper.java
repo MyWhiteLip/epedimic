@@ -4,6 +4,8 @@ import com.example.seu.entity.EpidemicData;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+
 /**
 * @author 22962
 * @description 针对表【epidemic_data】的数据库操作Mapper
@@ -14,6 +16,6 @@ import org.apache.ibatis.annotations.Mapper;
 public interface EpidemicDataMapper extends BaseMapper<EpidemicData> {
     int addEpidemicData(EpidemicData ed);
     int deleteEpidemicData(Integer id);
-
+    List<EpidemicData> queryAll();
 
 }

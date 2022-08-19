@@ -10,4 +10,8 @@
     <delete id="deleteEpidemicData">
         delete from mydata.epidemic_data where id=#{id}
     </delete>
+    <select id="queryAll" resultType="com.example.seu.entity.EpidemicData">
+        select * from mydata.epidemic_data
+    </select>
+
 </mapper>

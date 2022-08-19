@@ -7,6 +7,7 @@ import com.example.seu.mapper.EpidemicDataMapper;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
 * @author 22962
@@ -27,5 +28,10 @@ implements EpidemicDataService{
     @Override
     public int deleteEpidemicData(Integer id) {
         return edm.deleteEpidemicData(id);
+    }
+
+    @Override
+    public List<EpidemicData> queryAll() {
+        return edm.queryAll();
     }
 }

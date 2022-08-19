@@ -6,6 +6,7 @@ import com.example.seu.mapper.EpidemicDataMapper;
 import com.example.seu.mapper.EpidemicDataPrMapper;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
 * @author 22962
@@ -15,6 +16,7 @@ import javax.annotation.Resource;
 public interface EpidemicDataService extends IService<EpidemicData> {
     public int addEpidemicData(EpidemicData record);
     public int deleteEpidemicData(Integer id);
+    List<EpidemicData> queryAll();
 
 
 }
