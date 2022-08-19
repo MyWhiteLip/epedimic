@@ -11,7 +11,7 @@
         delete from mydata.anti_covid_policy  where id=#{id}
     </delete>
     <select id="getAntiCovidPolicy" resultType="com.example.seu.entity.AntiCovidPolicy">
-        select * from mydata.anti_covid_policy where  province_id=#{provinceId} and city_id =#{cityId}
+        select * from mydata.anti_covid_policy where   city_id =#{cityId}
     </select>
 
 

@@ -18,7 +18,7 @@ public class CovidDetectionPointAPI {
     CovidDetectionPointService cdps;
     @PostMapping("/getDetectionPoint")
     public ResultData getDetectionPoint(@RequestBody Map<String, Object> map) {
-        if (map.containsKey("provinceId"))
+        if (map.containsKey("provinceId") && !map.containsKey("cityId"))
         {
             List<CovidDetectionPoint> msg=cdps.getAllByProvinceId(Integer.parseInt(map.get("provinceId").toString()));
             if (msg!=null)

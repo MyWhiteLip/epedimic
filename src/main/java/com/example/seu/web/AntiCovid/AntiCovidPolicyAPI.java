@@ -5,10 +5,12 @@ import com.example.seu.service.AntiCovidPolicyService;
 import com.example.seu.service.TravelSuggestionService;
 import com.example.seu.system.ResultData;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.util.Map;
 
 @RestController
 public class AntiCovidPolicyAPI {
@@ -18,10 +20,15 @@ public class AntiCovidPolicyAPI {
     TravelSuggestionService tss;
 
     @PostMapping("/getPolicy")
-    public ResultData getPolicy(@RequestParam("cityId")int cityId, @RequestParam("provinceId")int provinceId)
+    public ResultData getPolicy(@RequestBody Map<String, Object> map)
     {
         ResultData data = new ResultData();
-        AntiCovidPolicy msg=acps.getPolicy(provinceId,cityId);
+        int cityId=0;
+        if (map.containsKey("cityId"))
+        {
+            cityId=Integer.parseInt(map.get("cityId").toString());
+        }
+        AntiCovidPolicy msg=acps.getPolicy(cityId);
         if (msg!=null){
             return ResultData.success(msg);
         }

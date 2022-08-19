@@ -33,8 +33,8 @@ implements AntiCovidPolicyService{
     }
 
     @Override
-    public AntiCovidPolicy getPolicy(int provinceId, int cityId) {
-        return acpm.getAntiCovidPolicy(provinceId,cityId);
+    public AntiCovidPolicy getPolicy( int cityId) {
+        return acpm.getAntiCovidPolicy(cityId);
     }
 
 
