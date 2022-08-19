@@ -3,6 +3,8 @@ package com.example.seu.service;
 import com.example.seu.entity.PopulationIn;
 import com.baomidou.mybatisplus.service.IService;
 
+import java.util.List;
+
 /**
 * @author 22962
 * @description 针对表【population_in】的数据库操作Service
@@ -11,5 +13,7 @@ import com.baomidou.mybatisplus.service.IService;
 public interface PopulationInService extends IService<PopulationIn> {
     public int addPopulationIn(PopulationIn record);
     public int deletePopulationIn(int id);
+
+    public List<PopulationIn> getPopulationInList(int cityId);
 
 }

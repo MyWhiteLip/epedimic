@@ -4,8 +4,8 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.seu.mapper.PopulationInMapper">
     <insert id="add">
-        insert into mydata.population_in(province_id, city_id, population_in, time)
-        values (#{provinceId}, #{cityId}, #{populationIn}，#{time})
+        insert into mydata.population_in(province_id, city_id, population_in, time,from_province_id,from_city_id)
+        values (#{provinceId}, #{cityId}, #{populationId}，#{time},#{fromProvinceId},#{fromCityId})
     </insert>
 
     <delete id="deleteById">
@@ -13,4 +13,7 @@
         from mydata.population_in
         where city_id = #{cityId}
     </delete>
+    <select id="getPopulationInByCityId" resultType="com.example.seu.entity.PopulationIn">
+        select * from mydata.population_in where city_id=#{cityId}
+    </select>
 </mapper>

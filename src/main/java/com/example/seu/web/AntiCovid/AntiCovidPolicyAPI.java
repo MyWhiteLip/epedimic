@@ -18,7 +18,7 @@ public class AntiCovidPolicyAPI {
     TravelSuggestionService tss;
 
     @PostMapping("/getPolicy")
-    public ResultData getPoldicy(@RequestBody Map<String, Object> map)
+    public ResultData getPolicy(@RequestBody Map<String, Object> map)
     {
         ResultData data = new ResultData();
         int cityId=0;

@@ -22,10 +22,11 @@ public class EpidemicDataAPI {
     @PostMapping("/getAllEpidemicData")
     public ResultData getAllEpidemicData() {
         List<EpidemicData> epidemicData = epidemicDataService.queryAll();
-        if(epidemicData!=null)
+        if(epidemicData!=null) {
             return ResultData.success(epidemicData);
-        else
+        } else {
             return ResultData.error("something wrong");
+        }
 
     }
 }

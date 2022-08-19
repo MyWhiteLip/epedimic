@@ -7,6 +7,7 @@ import com.example.seu.mapper.PopulationOutMapper;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
 * @author 22962
@@ -26,6 +27,11 @@ implements PopulationOutService{
     @Override
     public int deletePopulationOut(int id) {
         return pom.deleteById(id);
+    }
+
+    @Override
+    public List<PopulationOut> getPopulationOutList(int cityId) {
+        return pom.getPopulationOutByCityId(cityId);
     }
 
 }

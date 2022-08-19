@@ -7,6 +7,7 @@ import com.example.seu.mapper.PopulationInMapper;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
 * @author 22962
@@ -27,6 +28,11 @@ implements PopulationInService{
     public int deletePopulationIn(int id)
     {
         return pim.deleteById(id);
+    }
+
+    @Override
+    public List<PopulationIn> getPopulationInList(int cityId) {
+        return pim.getPopulationInByCityId(cityId);
     }
 
 }

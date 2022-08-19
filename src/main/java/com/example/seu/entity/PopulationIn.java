@@ -43,12 +43,12 @@ public class PopulationIn implements Serializable {
     /**
      *
      */
-    private String fromProvinceIn;
+    private String fromProvinceId;
 
     /**
      *
      */
-    private String fromCityIn;
+    private String fromCityId;
 
     private static final long serialVersionUID = 1L;
 }

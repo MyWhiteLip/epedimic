@@ -4,9 +4,12 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.seu.mapper.PopulationOutMapper">
     <insert id="add">
-    insert into mydata.population_out(province_id, city_id, population_out, time) VALUES(#{provinceId},#{cityId},#{populationOut})
+    insert into mydata.population_out(province_id, city_id, population_out, time,to_province_id,to_city_id) VALUES(#{provinceId},#{cityId},#{populationOut},#{time},#{toProvinceId},#{toCityId})
 </insert>
     <delete id="deleteById">
         delete from mydata.population_out where city_id=#{cityId}
     </delete>
+    <select id="getPopulationOutByCityId" resultType="com.example.seu.entity.PopulationOut">
+        select * from mydata.population_out where city_id=#{cityId}
+    </select>
 </mapper>

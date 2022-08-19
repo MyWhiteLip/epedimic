@@ -5,6 +5,8 @@ import com.baomidou.mybatisplus.mapper.BaseMapper;
 import com.example.seu.entity.PopulationOut;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+
 /**
 * @author 22962
 * @description 针对表【population_in】的数据库操作Mapper
@@ -16,5 +18,6 @@ public interface PopulationInMapper extends BaseMapper<PopulationIn> {
     int deleteById(int id);
 
     int add(PopulationIn populationIn);
+    List<PopulationIn> getPopulationInByCityId(int cityId);
 
 }
