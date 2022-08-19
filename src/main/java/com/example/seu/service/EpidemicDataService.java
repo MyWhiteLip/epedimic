@@ -14,9 +14,10 @@ import java.util.List;
 * @createDate 2022-08-15 13:04:12
 */
 public interface EpidemicDataService extends IService<EpidemicData> {
-    public int addEpidemicData(EpidemicData record);
-    public int deleteEpidemicData(Integer id);
+    int addEpidemicData(EpidemicData record);
+    int deleteEpidemicData(Integer id);
     List<EpidemicData> queryAll();
-
+    EpidemicData queryAllByProvinceId(Integer provinceId);
+    EpidemicData queryAllByCityId(Integer cityId);
 
 }

@@ -17,5 +17,6 @@ public interface EpidemicDataMapper extends BaseMapper<EpidemicData> {
     int addEpidemicData(EpidemicData ed);
     int deleteEpidemicData(Integer id);
     List<EpidemicData> queryAll();
-
+    EpidemicData queryAllByProvinceId(Integer provinceId);
+    EpidemicData queryAllByCityId(Integer cityId);
 }
