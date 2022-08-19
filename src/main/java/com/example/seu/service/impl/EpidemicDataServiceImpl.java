@@ -36,12 +36,12 @@ implements EpidemicDataService{
     }
 
     @Override
-    public EpidemicData queryAllByProvinceId(int provinceId) {
+    public EpidemicData queryAllByProvinceId(Integer provinceId) {
         return edm.queryAllByProvinceId(provinceId);
     }
 
     @Override
-    public EpidemicData queryAllByCityId(int cityId) {
+    public EpidemicData queryAllByCityId(Integer cityId) {
         return edm.queryAllByCityId(cityId);
     }
 }

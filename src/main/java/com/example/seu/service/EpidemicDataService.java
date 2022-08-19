@@ -17,7 +17,7 @@ public interface EpidemicDataService extends IService<EpidemicData> {
     int addEpidemicData(EpidemicData record);
     int deleteEpidemicData(Integer id);
     List<EpidemicData> queryAll();
-    EpidemicData queryAllByProvinceId(int provinceId);
-    EpidemicData queryAllByCityId(int cityId);
+    EpidemicData queryAllByProvinceId(Integer provinceId);
+    EpidemicData queryAllByCityId(Integer cityId);
 
 }

@@ -19,7 +19,4 @@ public interface CovidDetectionPointMapper extends BaseMapper<CovidDetectionPoin
     List<CovidDetectionPoint> getAll();
     List<CovidDetectionPoint> getAllByProvinceId(Integer provinceId);
     List<CovidDetectionPoint> getAllByCityId(Integer cityId);
-
-
-
 }
