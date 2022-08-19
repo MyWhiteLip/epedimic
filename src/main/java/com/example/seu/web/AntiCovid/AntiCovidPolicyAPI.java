@@ -4,15 +4,13 @@ import com.example.seu.entity.AntiCovidPolicy;
 import com.example.seu.service.AntiCovidPolicyService;
 import com.example.seu.service.TravelSuggestionService;
 import com.example.seu.system.ResultData;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.Map;
 
 @RestController
+@CrossOrigin("*")
 public class AntiCovidPolicyAPI {
     @Resource
     AntiCovidPolicyService acps;
@@ -20,7 +18,7 @@ public class AntiCovidPolicyAPI {
     TravelSuggestionService tss;
 
     @PostMapping("/getPolicy")
-    public ResultData getPolicy(@RequestBody Map<String, Object> map)
+    public ResultData getPoldicy(@RequestBody Map<String, Object> map)
     {
         ResultData data = new ResultData();
         int cityId=0;
