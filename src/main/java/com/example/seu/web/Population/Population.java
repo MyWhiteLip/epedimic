@@ -68,7 +68,7 @@ public class Population {
                 jo.put("toProvince",ais.searchAreaByAreaId(each.getToProvinceId()));
                 jo.put("toCity",ais.searchAreaByAreaId(each.getToCityId()));
                 jo.put("populationOut",each.getPopulationOut());
-                jo.put("time",each.getTime());
+                jo.put("time",each.getTime().toString());
                 ja.add(jo);
             }
             return ResultData.success(ja);
