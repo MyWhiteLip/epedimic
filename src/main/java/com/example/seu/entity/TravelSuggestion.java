@@ -40,10 +40,6 @@ public class TravelSuggestion implements Serializable {
      */
     private Integer cityToId;
 
-    /**
-     * 
-     */
-    private LocalDate time;
 
     /**
      * 
