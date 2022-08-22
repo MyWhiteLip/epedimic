@@ -21,10 +21,8 @@ public class CovidDetectionPointAPI {
         if (map.containsKey("provinceId") && !map.containsKey("cityId"))
         {
             List<CovidDetectionPoint> msg=cdps.getAllByProvinceId(Integer.parseInt(map.get("provinceId").toString()));
-            if (msg!=null)
-            {
+            if (msg!=null) {
                 return  ResultData.success(msg);
-
             }
             else
             {
@@ -39,8 +37,7 @@ public class CovidDetectionPointAPI {
             {
                 return  ResultData.success(msg);
             }
-            else
-            {
+            else {
                 String error="error id or there are no detection points";
                 return  ResultData.error(error);
             }
