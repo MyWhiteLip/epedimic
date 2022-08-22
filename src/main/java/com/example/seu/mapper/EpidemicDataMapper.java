@@ -4,6 +4,7 @@ import com.example.seu.entity.EpidemicData;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.sql.Date;
 import java.util.List;
 
 /**
@@ -19,4 +20,5 @@ public interface EpidemicDataMapper extends BaseMapper<EpidemicData> {
     List<EpidemicData> queryAll();
     EpidemicData queryAllByProvinceId(Integer provinceId);
     EpidemicData queryAllByCityId(Integer cityId);
+    List<EpidemicData> queryProvinceEpidemicData(Date date);
 }

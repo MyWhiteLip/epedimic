@@ -6,6 +6,7 @@ import com.example.seu.mapper.EpidemicDataMapper;
 import com.example.seu.mapper.EpidemicDataPrMapper;
 
 import javax.annotation.Resource;
+import java.sql.Date;
 import java.util.List;
 
 /**
@@ -19,5 +20,5 @@ public interface EpidemicDataService extends IService<EpidemicData> {
     List<EpidemicData> queryAll();
     EpidemicData queryAllByProvinceId(Integer provinceId);
     EpidemicData queryAllByCityId(Integer cityId);
-
+    List<EpidemicData> queryProvinceEpidemicData(Date date);
 }
