@@ -7,6 +7,7 @@ import com.example.seu.mapper.EpidemicDataMapper;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.sql.Date;
 import java.util.List;
 
 /**
@@ -43,5 +44,10 @@ implements EpidemicDataService{
     @Override
     public EpidemicData queryAllByCityId(Integer cityId) {
         return edm.queryAllByCityId(cityId);
+    }
+
+    @Override
+    public List<EpidemicData> queryProvinceEpidemicData(Date date) {
+        return  edm.queryProvinceEpidemicData(date);
     }
 }

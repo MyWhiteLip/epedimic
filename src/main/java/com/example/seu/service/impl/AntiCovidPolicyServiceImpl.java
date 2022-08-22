@@ -37,5 +37,4 @@ implements AntiCovidPolicyService{
         return acpm.getAntiCovidPolicy(cityId);
     }
 
-
 }

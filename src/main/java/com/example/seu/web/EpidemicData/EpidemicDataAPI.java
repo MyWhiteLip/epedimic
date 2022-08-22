@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -45,5 +47,20 @@ public class EpidemicDataAPI {
         }
     }
 
+    @PostMapping("/getAllProvinceEpidemicData")
+    public ResultData getAllProvinceEpidemicData() {
+        Date date = new Date();
+        SimpleDateFormat dtf = new SimpleDateFormat("yyyy-MM-dd");
+        String last_time = dtf.format(date);
+        System.out.println(last_time);
+        List<EpidemicData> epidemicData = epidemicDataService.queryProvinceEpidemicData(java.sql.Date.valueOf(last_time));
+        if (epidemicData!=null){
+            return ResultData.success(epidemicData);
+        }
+        else {
+            return ResultData.error("wrong");
+        }
 
+
+    }
 }
