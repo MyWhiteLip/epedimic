@@ -41,11 +41,12 @@ public class AntiCovidPolicyAPI {
     }
 
     @PostMapping("/getSuggestion")
-    public ResultData getSuggestion(@RequestParam("provinceIdFrom")int provinceId_from,
-                                    @RequestParam("cityIdFrom") int cityId_from,
-                                    @RequestParam("provinceIdTo")int provinceId_to,
-                                    @RequestParam("cityIdTo")int cityId_to)
+    public ResultData getSuggestion(@RequestBody Map<String,Object>map)
     {
+        int cityId_to= (int) map.get("cityIdTo");
+        int cityId_from= (int) map.get("cityIdFrom");
+        int provinceId_from= (int) map.get("provinceIdFrom");
+        int provinceId_to= (int) map.get("provinceIdTo");
         String key=cityId_from+" "+cityId_to;
         JSONObject joRedis = (JSONObject) redisService.getValue(key);
         if (joRedis!=null)
@@ -53,8 +54,13 @@ public class AntiCovidPolicyAPI {
             return ResultData.success(joRedis);
         }
         TravelSuggestion msg=tss.getSuggestion(provinceId_from,cityId_from,provinceId_to,cityId_to);
-        if (msg!=null){
+        if (msg==null){
             JSONObject jo=new JSONObject();
+            TravelSuggestion ts=new TravelSuggestion();
+            ts.setCityToId(cityId_to);
+            ts.setCityFromId(cityId_from);
+            ts.setProvinceFromId(provinceId_from);
+            ts.setProvinceToId(provinceId_to);
             jo.put("provinceFrom",ais.searchAreaByAreaId(provinceId_from));
             jo.put("cityFrom",ais.searchAreaByAreaId(cityId_from));
             jo.put("provinceTo",ais.searchAreaByAreaId(provinceId_to));
@@ -62,11 +68,20 @@ public class AntiCovidPolicyAPI {
             String suggestion="所在地离开政策： "+acps.getPolicy(cityId_from).getPolicyOut()+" 目的地到达政策："
                     +acps.getPolicy(cityId_to).getPolicyIn()+"  请用户结合两地政策自行判断！";
             jo.put("suggestion",suggestion);
+            ts.setSuggestion(suggestion);
+            tss.addTravelSuggestion(ts);
             redisService.setValue(key,jo);
             return ResultData.success(jo);
         }
         else {
-            return ResultData.error("suggestion not found or id error");
+            JSONObject jo=new JSONObject();
+            jo.put("provinceFrom",ais.searchAreaByAreaId(msg.getProvinceFromId()));
+            jo.put("cityFrom",ais.searchAreaByAreaId(msg.getCityFromId()));
+            jo.put("provinceTo",ais.searchAreaByAreaId(msg.getProvinceToId()));
+            jo.put("cityTo",ais.searchAreaByAreaId(msg.getCityToId()));
+            jo.put("suggestion",msg.getSuggestion());
+            redisService.setValue(key,jo);
+            return ResultData.success(jo);
         }
 
     }
