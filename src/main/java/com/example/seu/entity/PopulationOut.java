@@ -33,7 +33,7 @@ public class PopulationOut implements Serializable {
     /**
      * 
      */
-    private Integer populationOut;
+    private Double populationOut;
 
     /**
      * 
@@ -43,11 +43,11 @@ public class PopulationOut implements Serializable {
     /**
      *
      */
-    private String toProvinceId;
+    private int toProvinceId;
 
     /**
      *
      */
-    private String toCityId;
+    private int toCityId;
     private static final long serialVersionUID = 1L;
 }
