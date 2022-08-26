@@ -3,20 +3,21 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.seu.mapper.EpidemicDataPrMapper">
-    <insert id="add">
-        insert into mydata.epidemic_data_pr(province_id, city_id, confirm_pr, asymptomatic_pr, death_pr, cured_pr,
-                                            asymptomatic_increase_pr, time_pr)
-            value (#{provinceId}, #{cityId},
-                   #{confirmPr}, #{asymptomaticPr},
-                   #{deathPr}, #{curedPr},
-                   #{asymptomaticIncreasePr},
-                   #{timePr})
 
-    </insert>
-    <delete id="deleteById">
-        delete
-        from mydata.epidemic_data_pr
-        where id = #{id}
-    </delete>
+    <resultMap id="BaseResultMap" type="com.example.seu.entity.EpidemicDataPr">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="country" column="country" jdbcType="VARCHAR"/>
+            <result property="time" column="time" jdbcType="DATE"/>
+            <result property="confirmIncrease" column="confirm_increase" jdbcType="INTEGER"/>
+            <result property="isPredicted" column="is_predicted" jdbcType="INTEGER"/>
+            <result property="mark" column="mark" jdbcType="VARCHAR"/>
+    </resultMap>
 
+    <sql id="Base_Column_List">
+        id,country,time,
+        confirm_increase,is_predicted,mark
+    </sql>
+    <select id="getEpidemicDataPrList" resultType="com.example.seu.entity.EpidemicDataPr">
+        select * from mydata.epidemic_data_pr where country=#{country}
+    </select>
 </mapper>

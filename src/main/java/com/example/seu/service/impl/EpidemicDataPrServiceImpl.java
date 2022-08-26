@@ -7,24 +7,21 @@ import com.example.seu.mapper.EpidemicDataPrMapper;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
 * @author 22962
 * @description 针对表【epidemic_data_pr】的数据库操作Service实现
-* @createDate 2022-08-15 13:04:12
+* @createDate 2022-08-26 17:20:43
 */
 @Service
 public class EpidemicDataPrServiceImpl extends ServiceImpl<EpidemicDataPrMapper, EpidemicDataPr>
 implements EpidemicDataPrService{
+
     @Resource
     EpidemicDataPrMapper edpm;
     @Override
-    public int addEpidemicDataPr(EpidemicDataPr record) {
-        return edpm.add(record);
-    }
-
-    @Override
-    public int deleteEpidemicDataPr(Integer id) {
-        return edpm.deleteById(id);
+    public List<EpidemicDataPr> getAllEpidemicDataPrList(String country) {
+        return edpm.getEpidemicDataPrList(country);
     }
 }
