@@ -5,15 +5,17 @@ import com.example.seu.entity.PopulationOut;
 import com.example.seu.service.AreaIdService;
 import com.example.seu.service.PopulationInService;
 import com.example.seu.service.PopulationOutService;
+import com.example.seu.service.RiskScoreService;
 import com.example.seu.system.ResultData;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
 
 @RestController
 @CrossOrigin("*")
@@ -24,14 +26,20 @@ public class Population {
     PopulationOutService plos;
     @Resource
     AreaIdService ais;
+    @Resource
+    RiskScoreService rss;
 
     @PostMapping("/getPopulationInByCityId")
     public ResultData getPopulationIn(@RequestBody Map<String, Object> params){
         if (params.containsKey("cityId"))
         {
             JSONArray ja=new JSONArray();
-
-            List<PopulationIn> result=plis.getPopulationInList(Integer.parseInt(params.get("cityId").toString()));
+            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            LocalDate date=LocalDate.now();
+            date=date.plusDays(-1);
+            String last_time = dtf.format(date);
+            System.out.println(last_time);
+            List<PopulationIn> result=plis.getPopulationInList(Integer.parseInt(params.get("cityId").toString()),java.sql.Date.valueOf(last_time));
             for(PopulationIn each:result)
             {
                 JSONObject jo=new JSONObject();
@@ -58,8 +66,12 @@ public class Population {
         if (params.containsKey("cityId"))
         {
             JSONArray ja=new JSONArray();
-
-            List<PopulationOut> result=plos.getPopulationOutList(Integer.parseInt(params.get("cityId").toString()));
+            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            LocalDate date=LocalDate.now();
+            date=date.plusDays(-1);
+            String last_time = dtf.format(date);
+            System.out.println(last_time);
+            List<PopulationOut> result=plos.getPopulationOutList(Integer.parseInt(params.get("cityId").toString()),java.sql.Date.valueOf(last_time));
             for(PopulationOut each:result)
             {
                 JSONObject jo=new JSONObject();
@@ -74,6 +86,20 @@ public class Population {
             return ResultData.success(ja);
 
 
+        }
+        else
+        {
+            return ResultData.error("id error or data not found");
+        }
+    }
+    @PostMapping("/getPopulationAnalysis")
+    ResultData getPopulationAnalysis(@RequestBody Map<String, Object> params)
+    {
+
+        if (params.containsKey("cityId"))
+        {
+            String suggestion=rss.getPopulationAnalysis(Integer.parseInt(params.get("cityId").toString()));
+            return ResultData.success(suggestion);
         }
         else
         {

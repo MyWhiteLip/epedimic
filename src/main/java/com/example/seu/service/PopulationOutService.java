@@ -3,6 +3,7 @@ package com.example.seu.service;
 import com.example.seu.entity.PopulationOut;
 import com.baomidou.mybatisplus.service.IService;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -13,6 +14,6 @@ import java.util.List;
 public interface PopulationOutService extends IService<PopulationOut> {
     public int addPopulationOut(PopulationOut record);
     public int deletePopulationOut(int id);
-    public List<PopulationOut> getPopulationOutList(int cityId);
+    public List<PopulationOut> getPopulationOutList(int cityId, Date date);
 
 }

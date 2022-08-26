@@ -14,6 +14,6 @@
         where city_id = #{cityId}
     </delete>
     <select id="getPopulationInByCityId" resultType="com.example.seu.entity.PopulationIn">
-        select * from mydata.population_in where city_id=#{cityId}
+        select * from mydata.population_in where city_id=#{cityId} and time=#{date}
     </select>
 </mapper>
