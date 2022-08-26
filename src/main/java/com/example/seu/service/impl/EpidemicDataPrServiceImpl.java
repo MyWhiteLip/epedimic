@@ -7,6 +7,8 @@ import com.example.seu.mapper.EpidemicDataPrMapper;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 /**
@@ -24,4 +26,14 @@ implements EpidemicDataPrService{
     public List<EpidemicDataPr> getAllEpidemicDataPrList(String country) {
         return edpm.getEpidemicDataPrList(country);
     }
+
+    @Override
+    public List<EpidemicDataPr> getAllEpidemicDataWorld() {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate date=LocalDate.now();
+        date=date.plusDays(-1);
+        String last_time = dtf.format(date);
+        return edpm.getEpidemicDataWorld(java.sql.Date.valueOf(last_time));
+    }
+
 }

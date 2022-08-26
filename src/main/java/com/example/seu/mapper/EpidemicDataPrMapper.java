@@ -3,6 +3,7 @@ package com.example.seu.mapper;
 import com.example.seu.entity.EpidemicDataPr;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -13,6 +14,7 @@ import java.util.List;
 */
 public interface EpidemicDataPrMapper extends BaseMapper<EpidemicDataPr> {
     List<EpidemicDataPr> getEpidemicDataPrList(String country);
+    List<EpidemicDataPr> getEpidemicDataWorld(Date date);
 
 
 }

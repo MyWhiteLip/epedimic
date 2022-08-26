@@ -13,11 +13,10 @@
             <result property="mark" column="mark" jdbcType="VARCHAR"/>
     </resultMap>
 
-    <sql id="Base_Column_List">
-        id,country,time,
-        confirm_increase,is_predicted,mark
-    </sql>
     <select id="getEpidemicDataPrList" resultType="com.example.seu.entity.EpidemicDataPr">
         select * from mydata.epidemic_data_pr where country=#{country}
+    </select>
+    <select id="getEpidemicDataWorld" resultType="com.example.seu.entity.EpidemicDataPr">
+        select * from mydata.epidemic_data_pr where time =#{date}
     </select>
 </mapper>

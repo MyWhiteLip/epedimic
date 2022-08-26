@@ -49,4 +49,11 @@ public class EpidemicDataPrAPI {
         }
 
     }
+    @PostMapping("/getEpidemicDataByCountry")
+    public ResultData getEpidemicDataByCountry()
+    {
+        return ResultData.success(edps.getAllEpidemicDataWorld());
+    }
+
+
 }
