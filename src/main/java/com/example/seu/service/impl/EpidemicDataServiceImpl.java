@@ -47,7 +47,12 @@ implements EpidemicDataService{
     }
 
     @Override
-    public List<EpidemicData> queryProvinceEpidemicData(Date date) {
-        return  edm.queryProvinceEpidemicData(date);
+    public List<EpidemicData> queryChinaEpidemicData(Date date) {
+        return  edm.queryChinaEpidemicData(date);
+    }
+
+    @Override
+    public List<EpidemicData> queryProvinceEpidemicData(Date date, Integer provinceId) {
+        return edm.queryProvinceEpidemicData(date,provinceId);
     }
 }

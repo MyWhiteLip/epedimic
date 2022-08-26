@@ -72,8 +72,7 @@ public class CovidDetectionPointAPI {
                 return  ResultData.error(error);
             }
         }
-        else
-        {
+        else {
             String error="error params";
             return ResultData.error(error);
         }

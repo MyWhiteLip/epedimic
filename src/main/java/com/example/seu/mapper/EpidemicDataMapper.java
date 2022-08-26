@@ -20,5 +20,8 @@ public interface EpidemicDataMapper extends BaseMapper<EpidemicData> {
     List<EpidemicData> queryAll();
     EpidemicData queryAllByProvinceId(Integer provinceId);
     EpidemicData queryAllByCityId(Integer cityId);
-    List<EpidemicData> queryProvinceEpidemicData(Date date);
+    List<EpidemicData> queryChinaEpidemicData(Date date);
+
+    List<EpidemicData> queryProvinceEpidemicData(Date date, Integer provinceId);
+
 }

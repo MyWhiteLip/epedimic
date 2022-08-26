@@ -36,6 +36,7 @@ public class EpidemicDataAPI {
             return ResultData.error("something wrong");
         }
     }
+
     @PostMapping("/getAllEpidemicDataById")
     public ResultData getAllEpidemicDataById(@RequestBody Map<String, Object> map) {
         EpidemicData epidemicData;
@@ -53,20 +54,15 @@ public class EpidemicDataAPI {
         }
     }
 
-    @PostMapping("/getAllProvinceEpidemicData")
-    public ResultData getAllProvinceEpidemicData() {
-        Date date = new Date();
-        SimpleDateFormat dtf = new SimpleDateFormat("yyyy-MM-dd");
-        String last_time = dtf.format(date);
-        System.out.println(last_time);
-        List<EpidemicData> epidemicData = epidemicDataService.queryProvinceEpidemicData(java.sql.Date.valueOf(last_time));
+    @PostMapping("/getChinaEpidemicDataByDate")
+    public ResultData getChinaEpidemicDataByDate(@RequestBody Map<String, Object> map) {
+        java.sql.Date date = java.sql.Date.valueOf((String) map.get("date"));
+        List<EpidemicData> epidemicData = epidemicDataService.queryChinaEpidemicData(date);
         List<JSONObject> jsonObjects = new ArrayList<>();
-//        System.out.println(123);
         if (epidemicData!=null){
             for (EpidemicData data : epidemicData) {
                 JSONObject json = (JSONObject) JSON.toJSON(data);
                 json.put("provinceName", areaIdService.searchAreaByAreaId((Integer) json.get("provinceId")));
-//                System.out.println(json);
                 jsonObjects.add(json);
             }
             return ResultData.success(jsonObjects);
@@ -75,4 +71,49 @@ public class EpidemicDataAPI {
             return ResultData.error("wrong");
         }
     }
+
+    @PostMapping("/getProvinceEpidemicDataByNameAndDate")
+    public ResultData getProvinceEpidemicDataByNameAndDate(@RequestBody Map<String, Object> map) {
+        java.sql.Date date = java.sql.Date.valueOf((String) map.get("date"));
+        String provinceName = (String) map.get("provinceName");
+        int provinceId = areaIdService.searchAreaIdByArea(provinceName);
+
+        List<EpidemicData> epidemicData = epidemicDataService.queryProvinceEpidemicData(date, provinceId);
+        List<JSONObject> jsonObjects = new ArrayList<>();
+        if (epidemicData!=null){
+            for (EpidemicData data : epidemicData) {
+                if (data.getCityId() != null) {
+                    JSONObject json = (JSONObject) JSON.toJSON(data);
+                    json.put("cityName", areaIdService.searchAreaByAreaId((Integer) json.get("cityId")));
+                    jsonObjects.add(json);
+                }
+            }
+            return ResultData.success(jsonObjects);
+        }
+        else {
+            return ResultData.error("wrong");
+        }
+    }
+//    @PostMapping("/getAllProvinceEpidemicData")
+//    public ResultData getAllProvinceEpidemicData() {
+//        Date date = new Date();
+//        SimpleDateFormat dtf = new SimpleDateFormat("yyyy-MM-dd");
+//        String last_time = dtf.format(date);
+//        System.out.println(last_time);
+//        List<EpidemicData> epidemicData = epidemicDataService.queryProvinceEpidemicData(java.sql.Date.valueOf(last_time));
+//        List<JSONObject> jsonObjects = new ArrayList<>();
+////        System.out.println(123);
+//        if (epidemicData!=null){
+//            for (EpidemicData data : epidemicData) {
+//                JSONObject json = (JSONObject) JSON.toJSON(data);
+//                json.put("provinceName", areaIdService.searchAreaByAreaId((Integer) json.get("provinceId")));
+////                System.out.println(json);
+//                jsonObjects.add(json);
+//            }
+//            return ResultData.success(jsonObjects);
+//        }
+//        else {
+//            return ResultData.error("wrong");
+//        }
+//    }
 }

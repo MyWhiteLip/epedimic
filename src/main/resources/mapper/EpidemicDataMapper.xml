@@ -19,8 +19,11 @@
     <select id="queryAllByCityId" resultType="com.example.seu.entity.EpidemicData">
         select * from mydata.epidemic_data where city_id=#{cityId}
     </select>
-    <select id="queryProvinceEpidemicData" resultType="com.example.seu.entity.EpidemicData">
+    <select id="queryChinaEpidemicData" resultType="com.example.seu.entity.EpidemicData">
         select *from mydata.epidemic_data where city_id is null and time = #{date}
+    </select>
+    <select id="queryProvinceEpidemicData" resultType="com.example.seu.entity.EpidemicData">
+        select *from mydata.epidemic_data where province_id=#{provinceId} and time = #{date}
     </select>
 
 </mapper>
