@@ -1,5 +1,6 @@
 package com.example.seu.web.EpidemicData;
 
+import com.example.seu.entity.EpidemicData;
 import com.example.seu.entity.EpidemicDataPr;
 import com.example.seu.service.AreaIdService;
 import com.example.seu.service.EpidemicDataPrService;
@@ -28,6 +29,13 @@ public class EpidemicDataPrAPI {
             List<EpidemicDataPr> list=edps.getAllEpidemicDataPrList(params.get("country").toString());
             if (list!=null )
             {
+                for (EpidemicDataPr  epd:list)
+                {
+                    if (epd.getConfirmIncrease()<0)
+                    {
+                        epd.setConfirmIncrease(0);
+                    }
+                }
                 return ResultData.success(list);
             }
             else
