@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.mapper.BaseMapper;
 import com.example.seu.entity.PopulationOut;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -18,6 +19,6 @@ public interface PopulationInMapper extends BaseMapper<PopulationIn> {
     int deleteById(int id);
 
     int add(PopulationIn populationIn);
-    List<PopulationIn> getPopulationInByCityId(int cityId);
+    List<PopulationIn> getPopulationInByCityId(int cityId, Date date);
 
 }

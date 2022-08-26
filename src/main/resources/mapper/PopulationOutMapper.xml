@@ -10,6 +10,6 @@
         delete from mydata.population_out where city_id=#{cityId}
     </delete>
     <select id="getPopulationOutByCityId" resultType="com.example.seu.entity.PopulationOut">
-        select * from mydata.population_out where city_id=#{cityId}
+        select * from mydata.population_out where city_id=#{cityId} and time=#{date}
     </select>
 </mapper>

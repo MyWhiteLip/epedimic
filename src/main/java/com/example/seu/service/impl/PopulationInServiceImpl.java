@@ -7,6 +7,7 @@ import com.example.seu.mapper.PopulationInMapper;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -31,8 +32,8 @@ implements PopulationInService{
     }
 
     @Override
-    public List<PopulationIn> getPopulationInList(int cityId) {
-        return pim.getPopulationInByCityId(cityId);
+    public List<PopulationIn> getPopulationInList(int cityId, Date date) {
+        return pim.getPopulationInByCityId(cityId,date);
     }
 
 }

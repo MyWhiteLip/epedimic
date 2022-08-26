@@ -7,6 +7,7 @@ import com.example.seu.mapper.PopulationOutMapper;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -30,8 +31,8 @@ implements PopulationOutService{
     }
 
     @Override
-    public List<PopulationOut> getPopulationOutList(int cityId) {
-        return pom.getPopulationOutByCityId(cityId);
+    public List<PopulationOut> getPopulationOutList(int cityId, Date date) {
+        return pom.getPopulationOutByCityId(cityId,date);
     }
 
 }
