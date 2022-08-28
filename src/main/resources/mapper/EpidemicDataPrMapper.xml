@@ -4,19 +4,14 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.seu.mapper.EpidemicDataPrMapper">
 
-    <resultMap id="BaseResultMap" type="com.example.seu.entity.EpidemicDataPr">
-            <id property="id" column="id" jdbcType="INTEGER"/>
-            <result property="country" column="country" jdbcType="VARCHAR"/>
-            <result property="time" column="time" jdbcType="DATE"/>
-            <result property="confirmIncrease" column="confirm_increase" jdbcType="INTEGER"/>
-            <result property="isPredicted" column="is_predicted" jdbcType="INTEGER"/>
-            <result property="mark" column="mark" jdbcType="VARCHAR"/>
-    </resultMap>
-
     <select id="getEpidemicDataPrList" resultType="com.example.seu.entity.EpidemicDataPr">
         select * from mydata.epidemic_data_pr where country=#{country}
     </select>
-    <select id="getEpidemicDataWorld" resultType="com.example.seu.entity.EpidemicDataPr">
+    <select id="getEpidemicDataWorldByDate" resultType="com.example.seu.entity.EpidemicDataPr">
         select * from mydata.epidemic_data_pr where time =#{date}
+    </select>
+    <select id="getAll" resultType="com.example.seu.entity.EpidemicDataPr">
+        select *
+        from mydata.epidemic_data_pr;
     </select>
 </mapper>

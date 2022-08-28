@@ -15,4 +15,5 @@ import java.util.List;
 public interface EpidemicDataPrService extends IService<EpidemicDataPr> {
     List<EpidemicDataPr> getAllEpidemicDataPrList(String country);
     List<EpidemicDataPr> getAllEpidemicDataWorld();
+    List<EpidemicDataPr> getAll();
 }

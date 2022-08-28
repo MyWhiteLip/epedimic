@@ -33,7 +33,12 @@ implements EpidemicDataPrService{
         LocalDate date=LocalDate.now();
         date=date.plusDays(-1);
         String last_time = dtf.format(date);
-        return edpm.getEpidemicDataWorld(java.sql.Date.valueOf(last_time));
+        return edpm.getEpidemicDataWorldByDate(java.sql.Date.valueOf(last_time));
+    }
+
+    @Override
+    public List<EpidemicDataPr> getAll() {
+        return edpm.getAll();
     }
 
 }

@@ -14,7 +14,6 @@ import java.util.List;
 */
 public interface EpidemicDataPrMapper extends BaseMapper<EpidemicDataPr> {
     List<EpidemicDataPr> getEpidemicDataPrList(String country);
-    List<EpidemicDataPr> getEpidemicDataWorld(Date date);
-
-
+    List<EpidemicDataPr> getEpidemicDataWorldByDate(Date date);
+    List<EpidemicDataPr> getAll();
 }
