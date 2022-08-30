@@ -12,9 +12,6 @@ values(#{id},#{provinceFromId},#{cityFromId},#{provinceToId},#{cityToId},#{sugge
         delete from mydata.travel_suggestion where id=#{id}
     </delete>
     <select id="getSuggestion" resultType="com.example.seu.entity.TravelSuggestion">
-        select * from mydata.travel_suggestion where province_from_id=#{provinceId_from}
-        and city_from_id =#{cityId_from}
-        and province_to_id=#{provinceId_to}
-        and city_to_id =#{cityId_to}
+        select * from mydata.travel_suggestion where city_from_id =#{cityId_from} and city_to_id =#{cityId_to}
     </select>
 </mapper>

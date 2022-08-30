@@ -39,23 +39,23 @@ public class EpidemicDataAPI {
         }
     }
 
-    @PostMapping("/getAllEpidemicDataById")
-    @SystemControllerLog(operate = "根据城市id获得所有疫情",module = "疫情数据")
-    public ResultData getAllEpidemicDataById(@RequestBody Map<String, Object> map) {
-        EpidemicData epidemicData;
-        if (map.containsKey("cityId")){
-            epidemicData = epidemicDataService.queryAllByCityId((Integer) map.get("cityId"));
-        }
-        else {
-            epidemicData = epidemicDataService.queryAllByProvinceId((Integer) map.get("provinceId"));
-        }
-        if(epidemicData!=null){
-            return ResultData.success(epidemicData);
-        }
-        else {
-            return ResultData.error("something wrong");
-        }
-    }
+//    @PostMapping("/getAllEpidemicDataById")
+//    @SystemControllerLog(operate = "根据城市id获得所有疫情",module = "疫情数据")
+//    public ResultData getAllEpidemicDataById(@RequestBody Map<String, Object> map) {
+//        EpidemicData epidemicData;
+//        if (map.containsKey("cityId")){
+//            epidemicData = epidemicDataService.queryAllByCityId((Integer) map.get("cityId"));
+//        }
+//        else {
+//            epidemicData = epidemicDataService.queryAllByProvinceId((Integer) map.get("provinceId"));
+//        }
+//        if(epidemicData!=null){
+//            return ResultData.success(epidemicData);
+//        }
+//        else {
+//            return ResultData.error("something wrong");
+//        }
+//    }
 
     @PostMapping("/getChinaEpidemicDataByDate")
     @SystemControllerLog(operate = "获得所有疫情数据根据日期",module = "疫情数据")
@@ -99,6 +99,18 @@ public class EpidemicDataAPI {
             return ResultData.error("wrong");
         }
     }
+
+    @PostMapping("/geteEpidemicDataByIdAndDate")
+    @SystemControllerLog(operate = "根据id和日期获取城市疫情数据",module = "疫情数据")
+    public ResultData geteEpidemicDataByIdAndDate(@RequestBody Map<String, Object> map) {
+        java.sql.Date date = java.sql.Date.valueOf((String) map.get("date"));
+        Integer cityId = (Integer) map.get("cityId");
+
+        EpidemicData epidemicData = epidemicDataService.queryByCityId(date, cityId);
+        return ResultData.success(epidemicData);
+    }
+
+
 //    @PostMapping("/getAllProvinceEpidemicData")
 //    public ResultData getAllProvinceEpidemicData() {
 //        Date date = new Date();

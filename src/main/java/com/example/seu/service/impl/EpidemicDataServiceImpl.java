@@ -41,10 +41,7 @@ implements EpidemicDataService{
         return edm.queryAllByProvinceId(provinceId);
     }
 
-    @Override
-    public EpidemicData queryAllByCityId(Integer cityId) {
-        return edm.queryAllByCityId(cityId);
-    }
+
 
     @Override
     public List<EpidemicData> queryChinaEpidemicData(Date date) {
@@ -54,5 +51,10 @@ implements EpidemicDataService{
     @Override
     public List<EpidemicData> queryProvinceEpidemicData(Date date, Integer provinceId) {
         return edm.queryProvinceEpidemicData(date,provinceId);
+    }
+
+    @Override
+    public EpidemicData queryByCityId(Date date, Integer cityId) {
+        return edm.queryByCityId(date, cityId);
     }
 }

@@ -30,8 +30,8 @@ implements TravelSuggestionService{
         }
 
         @Override
-        public TravelSuggestion getSuggestion(int provinceId_from, int cityId_from, int provinceId_to, int cityId_to) {
-            return tsm.getSuggestion(provinceId_from,cityId_from,provinceId_to,cityId_to);
+        public TravelSuggestion getSuggestion(int cityId_from, int cityId_to) {
+            return tsm.getSuggestion(cityId_from,cityId_to);
     }
 
 
