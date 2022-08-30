@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.seu.mapper.GeneralLogMapper">
+
+    <resultMap id="BaseResultMap" type="com.example.seu.entity.GeneralLog">
+            <result property="eventTime" column="event_time" jdbcType="TIMESTAMP"/>
+            <result property="userHost" column="user_host" jdbcType="VARCHAR"/>
+            <result property="threadId" column="thread_id" jdbcType="BIGINT"/>
+            <result property="serverId" column="server_id" jdbcType="OTHER"/>
+            <result property="commandType" column="command_type" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        event_time,user_host,thread_id,
+        server_id,command_type,argument
+    </sql>
+    <select id="findAllList" resultType="com.example.seu.entity.GeneralLog">
+        select *from mysql.general_log  order by event_time desc limit 1000
+    </select>
+</mapper>

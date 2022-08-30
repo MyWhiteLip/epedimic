@@ -4,7 +4,9 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  * 
@@ -30,12 +32,16 @@ public class SystemLog implements Serializable {
     /**
      * 
      */
-    private LocalDate createTime;
+    private String request;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private Date createTime;
 
     /**
      * 
      */
     private String result;
+
 
     private static final long serialVersionUID = 1L;
 

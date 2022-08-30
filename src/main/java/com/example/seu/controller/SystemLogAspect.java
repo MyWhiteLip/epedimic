@@ -99,9 +99,10 @@ public class SystemLogAspect {
         //写入数据库操作日志
 
         SystemLog systemlog = new SystemLog();
+        systemlog.setRequest(requestJson);
         systemlog.setOperate(systemControllerLog.operate());
         systemlog.setModule(systemControllerLog.module());
-        systemlog.setCreateTime( LocalDate.now());
+        systemlog.setCreateTime( new Date());
         //存入返回的结果集 joinPoint.proceed()
         ResultData proceed = (ResultData) joinPoint.proceed();
         systemlog.setResult(JSONObject.toJSONString(joinPoint.proceed()));
