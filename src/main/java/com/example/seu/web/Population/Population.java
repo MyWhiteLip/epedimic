@@ -1,5 +1,6 @@
 package com.example.seu.web.Population;
 
+import com.example.seu.controller.SystemControllerLog;
 import com.example.seu.entity.PopulationIn;
 import com.example.seu.entity.PopulationOut;
 import com.example.seu.service.AreaIdService;
@@ -30,6 +31,7 @@ public class Population {
     RiskScoreService rss;
 
     @PostMapping("/getPopulationInByCityId")
+    @SystemControllerLog(operate = "获得人口流入",module = "人口流动")
     public ResultData getPopulationIn(@RequestBody Map<String, Object> params){
         if (params.containsKey("cityId"))
         {
@@ -62,6 +64,7 @@ public class Population {
 
     }
     @PostMapping("/getPopulationOutByCityId")
+    @SystemControllerLog(operate = "获得人口流出",module = "人口流动")
     public ResultData getPopulationOut(@RequestBody Map<String, Object> params){
         if (params.containsKey("cityId"))
         {
@@ -93,6 +96,7 @@ public class Population {
         }
     }
     @PostMapping("/getPopulationAnalysis")
+    @SystemControllerLog(operate = "获得人口流入分析",module = "人口流动")
     ResultData getPopulationAnalysis(@RequestBody Map<String, Object> params)
     {
 

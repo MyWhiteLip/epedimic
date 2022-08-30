@@ -1,5 +1,6 @@
 package com.example.seu.web.AntiCovid;
 
+import com.example.seu.controller.SystemControllerLog;
 import com.example.seu.entity.AntiCovidPolicy;
 import com.example.seu.entity.TravelSuggestion;
 import com.example.seu.service.AntiCovidPolicyService;
@@ -26,6 +27,7 @@ public class AntiCovidPolicyAPI {
     IRedisService redisService;
 
     @PostMapping("/getPolicy")
+    @SystemControllerLog(operate = "获得防疫政策",module = "防疫政策")
     public ResultData getPolicy(@RequestBody Map<String, Object> map) {
         ResultData data = new ResultData();
         int cityId = 0;
@@ -41,6 +43,7 @@ public class AntiCovidPolicyAPI {
     }
 
     @PostMapping("/getSuggestion")
+    @SystemControllerLog(operate = "获得建议",module = "疫情数据")
     public ResultData getSuggestion(@RequestBody Map<String,Object>map)
     {
         int cityId_to= (int) map.get("cityIdTo");

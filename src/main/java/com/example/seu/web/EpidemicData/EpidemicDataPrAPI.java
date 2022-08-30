@@ -1,5 +1,6 @@
 package com.example.seu.web.EpidemicData;
 
+import com.example.seu.controller.SystemControllerLog;
 import com.example.seu.entity.EpidemicData;
 import com.example.seu.entity.EpidemicDataPr;
 import com.example.seu.service.AreaIdService;
@@ -22,6 +23,7 @@ public class EpidemicDataPrAPI {
     @Resource
     EpidemicDataPrService edps;
     @PostMapping("/getEpidemicDataPr")
+    @SystemControllerLog(operate = "根据国家获得所有疫情预测数据",module = "疫情数据")
     public ResultData getEpidemicDataPr(@RequestBody Map<String, Object> params)
     {
         if (params.containsKey("country"))
@@ -50,12 +52,14 @@ public class EpidemicDataPrAPI {
 
     }
     @PostMapping("/getTodayEpidemicPrData")
+    @SystemControllerLog(operate = "获得世界今日疫情数据",module = "疫情数据")
     public ResultData getTodayEpidemicPrData()
     {
         return ResultData.success(edps.getAllEpidemicDataWorld());
     }
 
     @PostMapping("/getAllEpidemicPrData")
+    @SystemControllerLog(operate = "获得所有疫情预测数据",module = "疫情数据")
     public ResultData getAllEpidemicPrData()
     {
         return ResultData.success(edps.getAll());

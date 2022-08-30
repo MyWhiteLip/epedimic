@@ -1,5 +1,6 @@
 package com.example.seu.web.CovidDetectionPoint;
 
+import com.example.seu.controller.SystemControllerLog;
 import com.example.seu.entity.AntiCovidPolicy;
 import com.example.seu.entity.CovidDetectionPoint;
 import com.example.seu.service.AntiCovidPolicyService;
@@ -22,6 +23,7 @@ public class CovidDetectionPointAPI {
     @Resource
     AreaIdService ais;
     @PostMapping("/getDetectionPoint")
+    @SystemControllerLog(operate = "获得核酸检测点",module = "核酸检测")
     public ResultData getDetectionPoint(@RequestBody Map<String, Object> map) {
         if (map.containsKey("provinceId") && !map.containsKey("cityId"))
         {

@@ -2,6 +2,7 @@ package com.example.seu.web.EpidemicData;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.example.seu.controller.SystemControllerLog;
 import com.example.seu.entity.EpidemicData;
 import com.example.seu.service.AreaIdService;
 import com.example.seu.service.EpidemicDataService;
@@ -27,6 +28,7 @@ public class EpidemicDataAPI {
     AreaIdService areaIdService;
 
     @PostMapping("/getAllEpidemicData")
+    @SystemControllerLog(operate = "获得所有疫情数据",module = "疫情数据")
     public ResultData getAllEpidemicData() {
         List<EpidemicData> epidemicData = epidemicDataService.queryAll();
         if(epidemicData!=null) {
@@ -38,6 +40,7 @@ public class EpidemicDataAPI {
     }
 
     @PostMapping("/getAllEpidemicDataById")
+    @SystemControllerLog(operate = "根据城市id获得所有疫情",module = "疫情数据")
     public ResultData getAllEpidemicDataById(@RequestBody Map<String, Object> map) {
         EpidemicData epidemicData;
         if (map.containsKey("cityId")){
@@ -55,6 +58,7 @@ public class EpidemicDataAPI {
     }
 
     @PostMapping("/getChinaEpidemicDataByDate")
+    @SystemControllerLog(operate = "获得所有疫情数据根据日期",module = "疫情数据")
     public ResultData getChinaEpidemicDataByDate(@RequestBody Map<String, Object> map) {
         java.sql.Date date = java.sql.Date.valueOf((String) map.get("date"));
         List<EpidemicData> epidemicData = epidemicDataService.queryChinaEpidemicData(date);
@@ -73,6 +77,7 @@ public class EpidemicDataAPI {
     }
 
     @PostMapping("/getProvinceEpidemicDataByNameAndDate")
+    @SystemControllerLog(operate = "获得所有疫情数据根据名与日期",module = "疫情数据")
     public ResultData getProvinceEpidemicDataByNameAndDate(@RequestBody Map<String, Object> map) {
         java.sql.Date date = java.sql.Date.valueOf((String) map.get("date"));
         String provinceName = (String) map.get("provinceName");
